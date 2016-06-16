@@ -4,10 +4,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import sinauadmin.controller.AdminUserActionListener;
+import sinauadmin.controller.AdminUserBackActionListener;
+import sinauadmin.controller.AdminUserCariActionListener;
+import sinauadmin.controller.AdminUserDeleteActionListener;
+import sinauadmin.controller.AdminUserSaveActionListener;
+import sinauadmin.controller.AdminUserTambahBaruActionListener;
+import sinauadmin.controller.AdminUserUbahActionListener;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
@@ -111,43 +117,35 @@ public class AdminUserGui extends JFrame {
 
 		btnTambahBaru = new JButton("Tambah Baru");
 		btnTambahBaru.setBounds(15, 133, 114, 23);
+		btnTambahBaru.addActionListener(new AdminUserTambahBaruActionListener(this));
 		contentPane.add(btnTambahBaru);
 
 		btnUbah = new JButton("Edit");
 		btnUbah.setBounds(136, 133, 95, 23);
+		btnUbah.addActionListener(new AdminUserUbahActionListener(this));
 		contentPane.add(btnUbah);
 
 		btnSave = new JButton("Save");
 		btnSave.setBounds(49, 336, 95, 23);
+		btnSave.addActionListener(new AdminUserSaveActionListener(this));
 		contentPane.add(btnSave);
 
 		btnDelete = new JButton("Delete");
 		btnDelete.setBounds(202, 336, 95, 23);
+		btnDelete.addActionListener(new AdminUserDeleteActionListener(this));
 		contentPane.add(btnDelete);
 
 		btnBack = new JButton("Kembali Ke Pencarian");
 		btnBack.setBounds(206, 438, 133, 23);
+		btnBack.addActionListener(new AdminUserBackActionListener(this));
 		contentPane.add(btnBack);
 
 		btnCari = new JButton("Cari");
 		btnCari.setBounds(250, 101, 89, 23);
+		btnCari.addActionListener(new AdminUserCariActionListener(this));
 		contentPane.add(btnCari);
-
-		AdminUserActionListener actionEvent = new AdminUserActionListener(this);
-		btnCari.addActionListener(actionEvent);
-		btnTambahBaru.addActionListener(actionEvent);
-		btnUbah.addActionListener(actionEvent);
-		btnSave.addActionListener(actionEvent);
-		btnDelete.addActionListener(actionEvent);
-		btnBack.addActionListener(actionEvent);
-
-		btnCari.setActionCommand("Cari");
-		btnTambahBaru.setActionCommand("TambahBaru");
-		btnUbah.setActionCommand("Ubah");
-		btnSave.setActionCommand("Save");
-		btnDelete.setActionCommand("Delete");
-		btnBack.setActionCommand("Back");
 	}
+
 	public JTextField getTxtCari() {
 		return txtCari;
 	}

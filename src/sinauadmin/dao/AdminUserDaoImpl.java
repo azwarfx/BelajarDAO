@@ -50,6 +50,7 @@ public class AdminUserDaoImpl implements AdminUserDao {
 			updateStatement.setString(3, adminUser.getPhone());
 			updateStatement.setString(4, adminUser.getUserAddress());
 			updateStatement.setString(5, adminUser.getOtherSchool());
+			updateStatement.setString(6, adminUser.getUserId());
 			updateStatement.executeUpdate();
 		}
 		return adminUser;

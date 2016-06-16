@@ -15,6 +15,10 @@ public class AdminUserService {
 	private AdminUserDao adminUserDao;
 	private Connection connection;
 
+	public AdminUserService() {
+
+	}
+
 	public void setDataSource(DataSource dataSource){
 		try {
 			connection = dataSource.getConnection();
